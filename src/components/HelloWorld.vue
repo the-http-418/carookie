@@ -2,10 +2,12 @@
   <div class="hello">
     <img id="caropic" alt="caro" src="https://techwarts.tech/assets/img/IMG_1061%20Cropped.jpg"/>
     <h1>Hey! I'm Caro, but you can call me CJ.</h1>
-    <h3>
+    <h2>
       I make amazing cookies!
+    </h2>
+    <h3>
+      Hit me up for some ooey-gooey chocolatey amazingness!
     </h3>
-    
   </div>
 </template>
 
