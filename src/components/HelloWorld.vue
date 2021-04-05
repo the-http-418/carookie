@@ -6,10 +6,23 @@
       src="https://techwarts.tech/assets/img/IMG_1061%20Cropped.jpg"
     />
     <h1>Hey! I'm Caro, but you can call me CJ.</h1>
+    <h2>I make amazing cookies :)</h2>
     <h2>And it's my birthday today!!!!!</h2>
     <h3>Click here to wish me a happy birthday</h3>
     <form>
-      <input type="text" id="name" value="name" placeholder="Your Name" />
+      <label for="name">Your name</label>
+      <br />
+      <input type="text" id="name" name="name" placeholder="Your Name" />
+      <br />
+      <label for="wishes">Your personalized wish</label>
+      <br />
+      <textarea
+        id="wishes"
+        name="wishes"
+        value="Wish you a very Happy Birthday! 🎊"
+        placeholder="Your wishes"
+      />
+      <br />
       <button v-on:click="wish">Wish</button>
     </form>
   </div>
@@ -25,13 +38,27 @@ export default {
   },
   methods: {
     wish: function (event) {
-      console.log("HIIII");
+      // console.log("HIIII");
       event.preventDefault();
-      var content = "Dear Caroline, ";
+      var content = "Dear @caro, ";
       content += document.getElementById("name").value;
-      content += " wishes you a very Happy Birthday! 🎊";
+      // content += " wishes you a very Happy Birthday! 🎊";
+      content += ' says, "';
+      content += document.getElementById("wishes").value;
+      content += '"';
+
       let data = { content: content };
-      axios.post("https://discord.com/api/webhooks/828480703288705055/ndqcUqphtUUpGTs1usNlvmgKt8URDe2v1IHZlQvW-lW-hDmRGJ8m6Gb5osBufg1Wt3yt", data);
+      axios
+        .post(
+          // "https://discord.com/api/webhooks/828480703288705055/ndqcUqphtUUpGTs1usNlvmgKt8URDe2v1IHZlQvW-lW-hDmRGJ8m6Gb5osBufg1Wt3yt",
+          "https://discord.com/api/webhooks/828495583789842445/kDh0Y3UR3gIq0VX85vKZPbN3kYl0SqlGQlHAG1iLPgzRMyaL_qGrTUm74zvBuPvvqD_W",
+          data
+        )
+        .then(
+          alert(
+            "You have wished caro. To make sure your wishes reach her, send this link to 3 other people."
+          )
+        );
     },
   },
 };
